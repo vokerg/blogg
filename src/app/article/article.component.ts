@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Params } from '@angular/router'
 
 @Component({
   selector: 'app-article',
@@ -7,9 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ArticleComponent implements OnInit {
 
-  constructor() { }
+  constructor(private route: ActivatedRoute) {
+  }
+
+  id;
 
   ngOnInit() {
+    this.route.params.forEach(params => this.id = params["id"]);
   }
 
 }

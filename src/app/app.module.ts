@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
+import { HttpClient, HttpHandler } from '@angular/common/http';
 
 
 import { AppComponent } from './app.component';
@@ -8,6 +9,7 @@ import { ArticleComponent } from './article/article.component';
 import { CommentComponent } from './comment/comment.component';
 import { ArticlePreviewComponent } from './article-preview/article-preview.component';
 import { ArticlesComponent } from './articles/articles.component';
+import { ArticlesService } from './articles.service';
 
 
 @NgModule({
@@ -25,7 +27,11 @@ import { ArticlesComponent } from './articles/articles.component';
       {path: 'articles/:id', component: ArticleComponent}
     ])
   ],
-  providers: [],
+  providers: [
+    ArticlesService,
+    HttpClient,
+    HttpHandler
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
