@@ -1,4 +1,6 @@
 <p>
   article-preview works!
-  {{article.title}}
+  <a [routerLink]="['/articles', article.id]"> {{article.title}} </a>
+  Liked: {{article.liked}}
+  <button (click)="setLike()">{{article.liked ? "Unlike" : "Like"}}</button>
 </p>

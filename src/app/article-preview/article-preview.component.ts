@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { ArticlesComponent } from '../articles/articles.component';
 
 @Component({
   selector: 'app-article-preview',
@@ -9,7 +10,11 @@ export class ArticlePreviewComponent implements OnInit {
 
   @Input() article;
 
-  constructor() { }
+  setLike() {
+    this.articlesComponent.setLike(this.article);
+  }
+
+  constructor(private articlesComponent: ArticlesComponent) { }
 
   ngOnInit() {
   }

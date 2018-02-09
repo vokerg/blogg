@@ -7,22 +7,35 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ArticlesComponent implements OnInit {
 
-  articles1: Observable.of([
-    {
-      title: "article1",
-      subject: "subject1",
-      content: "articlet article article"
-    },
-    {
-      title: "article2",
-      subject: "subject2",
-      content: "articlet article article"
-    }
-  ]);
+  articles: [ ];
 
-  constructor() { }
+  constructor() {
+    this.articles = [
+      {
+        id: "1",
+        title: "article1",
+        subject: "subject1",
+        content: "articlet article article",
+        liked: false
+      },
+      {
+        id: "2",
+        title: "article2",
+        subject: "subject2",
+        content: "articlet article article",
+        liked: false
+      }
+    ];
+   }
 
   ngOnInit() {
+
+  }
+
+  setLike(article) {
+    console.log("articles setLike fired for id" + article.id, this.articles);
+    article.liked = !article.liked;
+
   }
 
 }

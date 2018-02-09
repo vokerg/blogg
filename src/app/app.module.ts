@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { RouterModule } from '@angular/router';
 
 
 import { AppComponent } from './app.component';
@@ -18,7 +19,11 @@ import { ArticlesComponent } from './articles/articles.component';
     ArticlesComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    RouterModule.forRoot([
+      {path: '', component: ArticlesComponent},
+      {path: 'articles/:id', component: ArticleComponent}
+    ])
   ],
   providers: [],
   bootstrap: [AppComponent]
