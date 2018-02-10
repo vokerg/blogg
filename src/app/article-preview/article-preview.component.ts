@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { ArticlesComponent } from '../articles/articles.component';
+import { Article } from '../model/article';
 
 @Component({
   selector: 'app-article-preview',
@@ -8,7 +9,7 @@ import { ArticlesComponent } from '../articles/articles.component';
 })
 export class ArticlePreviewComponent implements OnInit {
 
-  @Input() article;
+  @Input() article: Article;
 
   setLike() {
     this.articlesComponent.setLike(this.article);

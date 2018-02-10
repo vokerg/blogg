@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ArticlesService } from '../articles.service';
+import { Article } from '../model/article';
 
 @Component({
   selector: 'app-articles',
@@ -8,7 +9,7 @@ import { ArticlesService } from '../articles.service';
 })
 export class ArticlesComponent implements OnInit {
 
-  articles = [];
+  articles: Article[];
 
   constructor(private articlesService: ArticlesService) {
    }

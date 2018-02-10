@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import 'rxjs/Rx';
+import { Article } from './model/article';
 
 @Injectable()
 export class ArticlesService {
@@ -9,7 +10,7 @@ export class ArticlesService {
    }
 
   getServices() {
-    return this.http.get<any>('assets/articles.json').map(response => response.articles);
+    return this.http.get<any>('assets/articles.json').map(response => <Article[]>response.articles);
   }
 
 }
