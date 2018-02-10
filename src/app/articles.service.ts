@@ -10,7 +10,7 @@ export class ArticlesService {
    }
 
   getServices() {
-    return this.http.get<any>('assets/articles.json').map(response => <Article[]>response.articles);
+    return this.http.get<any>('api/articles').map(response => <Article[]>response.articles);
   }
 
 }
