@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { HttpClient, HttpHandler } from '@angular/common/http';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 
 
 import { AppComponent } from './app.component';
@@ -22,6 +22,7 @@ import { ArticlesService } from './articles.service';
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     RouterModule.forRoot([
       {path: '', component: ArticlesComponent},
       {path: 'articles/:id', component: ArticleComponent}
@@ -29,8 +30,7 @@ import { ArticlesService } from './articles.service';
   ],
   providers: [
     ArticlesService,
-    HttpClient,
-    HttpHandler
+    HttpClient
   ],
   bootstrap: [AppComponent]
 })

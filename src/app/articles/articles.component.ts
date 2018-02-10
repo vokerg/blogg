@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { ArticlesService } from '../articles.service';
-import 'rxjs/Rx';
-import {Observable} from "rxjs/Observable";
 
 @Component({
   selector: 'app-articles',
@@ -10,23 +8,17 @@ import {Observable} from "rxjs/Observable";
 })
 export class ArticlesComponent implements OnInit {
 
-  articles[];
+  articles = [];
 
   constructor(private articlesService: ArticlesService) {
    }
 
   ngOnInit() {
-    this.articlesService.getServices().forEach(article => {
-      console.log("articles", article);
-        //this.articles = articles;
-        this.articles.push(article);
-    });
+    this.articlesService.getServices().forEach(response => this.articles = response);
   }
 
   setLike(article) {
-    console.log("articles setLike fired for id" + article.id, this.articles);
     article.liked = !article.liked;
-
   }
 
 }
