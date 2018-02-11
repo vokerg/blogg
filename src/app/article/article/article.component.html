@@ -3,3 +3,7 @@
   <a [routerLink]="['/articles', id, 'edit']">Edit</a>
   <button (click)="back()">Back</button>
 </p>
+<div>
+  Comments:
+  <app-comment *ngFor="let comment of comments" [comment]="comment"></app-comment>
+</div>

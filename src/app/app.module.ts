@@ -6,17 +6,15 @@ import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { ArticlesComponent } from './articles/articles/articles.component';
-import { ArticleComponent } from './article/article.component';
-import { CommentComponent } from './comment/comment.component';
+import { ArticleComponent } from './article/article/article.component';
 import { ArticlesService } from './articles.service';
 import { EditArticleComponent } from './edit-article/edit-article.component';
 import { ArticlesModule } from './articles/articles.module';
+import { ArticleModule } from './article/article.module';
 
 @NgModule({
   declarations: [
     AppComponent,
-    CommentComponent,
-    ArticleComponent,
     EditArticleComponent
   ],
   imports: [
@@ -28,7 +26,8 @@ import { ArticlesModule } from './articles/articles.module';
       {path: 'articles/:id', component: ArticleComponent},
       {path: 'articles/:id/edit', component: EditArticleComponent}
     ]),
-    ArticlesModule
+    ArticlesModule,
+    ArticleModule
   ],
   providers: [
     ArticlesService,

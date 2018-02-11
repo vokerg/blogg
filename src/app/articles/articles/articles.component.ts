@@ -15,7 +15,7 @@ export class ArticlesComponent implements OnInit {
    }
 
   ngOnInit() {
-    this.articlesService.getServices().forEach(response => this.articles = response);
+    this.articlesService.getArticles().forEach(response => this.articles = response);
   }
 
   setLike(article) {

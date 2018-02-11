@@ -7,6 +7,10 @@ const app = express();
 
 app.use(express.static(path.join(__dirname, 'dist')));
 
+app.get('/api/articles/:id/comments', (request, response) => {
+  response.status(200).json(JSON.parse(fs.readFileSync(path.join(__dirname, 'src/assets/comments.json'))));
+})
+
 app.get('/api/articles', (request, response) => {
   response.status(200).json(JSON.parse(fs.readFileSync(path.join(__dirname, 'src/assets/articles.json'))));
 })
