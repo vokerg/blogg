@@ -1,0 +1,11 @@
+<p>
+  edit-article {{id}}
+</p>
+<form (ngSubmit)="onSubmit()">
+  <div>
+    <input [(ngModel)]="title" name="title">
+    <input [(ngModel)]="subject" name="subject">
+    <input [(ngModel)]="content" name="content">
+    <button type="submit">Submit</button>
+  </div>
+</form>

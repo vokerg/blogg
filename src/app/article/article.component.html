@@ -1,3 +1,5 @@
 <p>
   article {{this.id}} works!
+  <a [routerLink]="['/articles', id, 'edit']">Edit</a>
+  <button (click)="back()">Back</button>
 </p>
