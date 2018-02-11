@@ -4,23 +4,19 @@ import { RouterModule } from '@angular/router';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 
-
 import { AppComponent } from './app.component';
+import { ArticlesComponent } from './articles/articles/articles.component';
 import { ArticleComponent } from './article/article.component';
 import { CommentComponent } from './comment/comment.component';
-import { ArticlePreviewComponent } from './article-preview/article-preview.component';
-import { ArticlesComponent } from './articles/articles.component';
 import { ArticlesService } from './articles.service';
 import { EditArticleComponent } from './edit-article/edit-article.component';
-
+import { ArticlesModule } from './articles/articles.module';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ArticleComponent,
     CommentComponent,
-    ArticlePreviewComponent,
-    ArticlesComponent,
+    ArticleComponent,
     EditArticleComponent
   ],
   imports: [
@@ -31,7 +27,8 @@ import { EditArticleComponent } from './edit-article/edit-article.component';
       {path: '', component: ArticlesComponent},
       {path: 'articles/:id', component: ArticleComponent},
       {path: 'articles/:id/edit', component: EditArticleComponent}
-    ])
+    ]),
+    ArticlesModule
   ],
   providers: [
     ArticlesService,

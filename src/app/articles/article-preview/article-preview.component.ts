@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { ArticlesComponent } from '../articles/articles.component';
-import { Article } from '../model/article';
+import { Article } from '../../model/article';
 
 @Component({
   selector: 'app-article-preview',
