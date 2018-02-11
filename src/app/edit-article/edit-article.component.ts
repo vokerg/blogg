@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params, Router } from '@angular/router';
+import { ArticlesService } from '../articles.service';
 import { Article } from '../model/article';
 
 @Component({
@@ -13,17 +14,24 @@ export class EditArticleComponent implements OnInit {
   subject="";
   content="";
 
+
+  article: Article = {
+    id:0,
+    title:"",
+    subject:"",
+    content:"",
+    liked: false
+  };
+
   onSubmit() {
-    const {id, title, subject, content} = this;
-    let article = <Article>({
-        id,
-        title,
-        subject,
-        content
-    });
-    console.log(article);
+    this.articlesService.updateArticle(this.article).forEach(errorCode => {
+      if (errorCode !== 0) {
+        console.log("result111", errorCode);
+      }
+    })
   }
-  constructor(private router: Router, private route: ActivatedRoute) { }
+
+  constructor(private router: Router, private route: ActivatedRoute, private articlesService: ArticlesService) { }
 
   ngOnInit() {
     this.route.params.forEach(params => this.id = params["id"]);

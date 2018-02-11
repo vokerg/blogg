@@ -3,9 +3,9 @@
 </p>
 <form (ngSubmit)="onSubmit()">
   <div>
-    <input [(ngModel)]="title" name="title">
-    <input [(ngModel)]="subject" name="subject">
-    <input [(ngModel)]="content" name="content">
+    <input [(ngModel)]="article.title" name="title">
+    <input [(ngModel)]="article.subject" name="subject">
+    <input [(ngModel)]="article.content" name="content">
     <button type="submit">Submit</button>
   </div>
 </form>
