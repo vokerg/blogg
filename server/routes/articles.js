@@ -13,7 +13,16 @@ router.route('/:id/comments')
 
 router.route('/:id')
   .post(parserJson, (request, response) => response.status(200).json(request.body))
-  .get((request, response) => response.status(501).json("Not implemented"))
+  .get((request, response) => {
+    const articles = JSON.parse(fs.readFileSync(path.join(__dirname, '../../src/assets/articles.json'))).articles;
+    for (article of articles) {
+      if (article.id === request.params.id) {
+        response.status(200).json(article);
+        return;
+      }
+    }
+    response.status(404).json("Not found");
+  })
   .delete((request, response) => response.status(501).json("Not implemented"));
 
 router.route('/')

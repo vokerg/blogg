@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params, Router } from '@angular/router'
 import { ArticlesService } from '../../articles.service';
+import { Article } from '../../model/article';
+import { Comment } from '../../model/comment';
 
 @Component({
   selector: 'app-article',
@@ -13,15 +15,21 @@ export class ArticleComponent implements OnInit {
     private route: ActivatedRoute,
     private router: Router,
     private articlesService: ArticlesService
-  ) { }
+  ) {
+    this.article = new Article();
+  }
 
-  id=0;
-  comments=[];
+  id: number;
+  article: Article;
+  comments: Comment[];
 
   ngOnInit() {
     this.route.params.forEach(params => {
       this.id = params["id"];
-      this.articlesService.getComments(this.id).forEach(response => this.comments = response);
+      this.articlesService.getArticle(this.id).forEach(article => {
+        this.article = article;
+        this.articlesService.getComments(this.id).forEach(response => this.comments = response);
+      });
     });
   }
 

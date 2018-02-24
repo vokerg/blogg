@@ -9,12 +9,6 @@ import { Article } from '../model/article';
   styleUrls: ['./edit-article.component.css']
 })
 export class EditArticleComponent implements OnInit {
-  id=0;
-  title="";
-  subject="";
-  content="";
-
-
   article: Article = {
     id:0,
     title:"",
@@ -22,19 +16,31 @@ export class EditArticleComponent implements OnInit {
     content:"",
     liked: false
   };
+  id: number;
 
   onSubmit() {
     this.articlesService.updateArticle(this.article).forEach(errorCode => {
       if (errorCode !== 0) {
         console.log("result111", errorCode);
       }
-    })
+    });
   }
 
-  constructor(private router: Router, private route: ActivatedRoute, private articlesService: ArticlesService) { }
+  constructor(
+    private router: Router,
+    private route: ActivatedRoute,
+    private articlesService: ArticlesService) {
+  }
 
   ngOnInit() {
-    this.route.params.forEach(params => this.id = params["id"]);
+    this.route.params.forEach(params => {
+      this.id = params["id"];
+      this.articlesService.getArticle(this.id).forEach(article => {
+        this.article = article;
+        console.log("article", this.article);
+      });
+    });
+
   }
 
 }

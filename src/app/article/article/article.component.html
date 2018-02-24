@@ -1,8 +1,9 @@
-<p>
-  article {{this.id}} works!
-  <a [routerLink]="['/articles', id, 'edit']">Edit</a>
-  <button (click)="back()">Back</button>
-</p>
+<button (click)="back()">Back</button>
+<h2>{{article.title}}</h2>
+<h3>{{article.subject}}</h3>
+<h4>{{article.content}}</h4>
+<a [routerLink]="['/articles', id, 'edit']">Edit</a>
+
 <div>
   Comments:
   <app-comment *ngFor="let comment of comments" [comment]="comment"></app-comment>

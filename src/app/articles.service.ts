@@ -15,14 +15,18 @@ export class ArticlesService {
     return this.http.get<any>('api/articles').map(response => <Article[]>response.articles);
   }
 
-  getComments(articleId:number):Observable<Comment[]> {
+  getArticle(articleId: number):Observable<Article> {
+    return this.http.get<any>('api/articles/' + articleId);
+  }
+
+  getComments(articleId: number):Observable<Comment[]> {
     return this.http.get<any>('api/articles/' + articleId + '/comments' ).map(response => <Comment[]>response.comments);
   }
 
-  updateArticle(article: Article): number {
+  updateArticle(article: Article): Observable<number> {
     const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
     const options = { headers: headers };
-    return this.http.post<any>('api/articles/' + article.id, article, options).map((res, err) => err;
+    return this.http.post<any>('api/articles/' + article.id, article, options).map((res, err) => err);
   }
 
 }
