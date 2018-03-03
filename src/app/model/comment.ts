@@ -3,4 +3,10 @@ export class Comment {
   author: string;
   date: Date;
   comment: string;
+  constructor() {
+    this.id=0;
+    this.author="";
+    this.date=new Date();
+    this.comment="";
+  }
 }

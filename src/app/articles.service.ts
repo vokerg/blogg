@@ -20,13 +20,19 @@ export class ArticlesService {
   }
 
   getComments(articleId: number):Observable<Comment[]> {
-    return this.http.get<any>('api/articles/' + articleId + '/comments' ).map(response => <Comment[]>response.comments);
+    return this.http.get<any>(`api/articles/${articleId}/comments` ).map(response => <Comment[]>response.comments);
   }
 
   updateArticle(article: Article): Observable<number> {
     const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
     const options = { headers: headers };
     return this.http.post<any>('api/articles/' + article.id, article, options).map((res, err) => err);
+  }
+
+  addComment(articleId: String, comment: Comment):Observable<number> {
+    const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
+    const options = { headers: headers };
+    return this.http.put<any>(`api/articles/${articleId}/comments`, comment, options).map((res, err) => err);
   }
 
 }
