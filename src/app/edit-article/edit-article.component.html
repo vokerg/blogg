@@ -1,6 +1,5 @@
-<p>
-  edit-article {{id}}
-</p>
+<p *ngIf="id">edit-article {{id}}</p>
+<p *ngIf="!id">New article</p>
 <form (ngSubmit)="onSubmit()">
   <div>
     <input [(ngModel)]="article.title" name="title">

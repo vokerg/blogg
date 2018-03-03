@@ -9,7 +9,8 @@ const router = express.Router();
 router.route('/:id/comments')
   .get((request, response) =>
     response.status(200).json(JSON.parse(fs.readFileSync(path.join(__dirname, '../../src/assets/comments.json'))))
-  );
+  )
+  .put((request, response) => response.status(200).json(request.body));
 
 router.route('/:id')
   .post(parserJson, (request, response) => response.status(200).json(request.body))
@@ -28,6 +29,7 @@ router.route('/:id')
 router.route('/')
   .get((request, response) =>
     response.status(200).json(JSON.parse(fs.readFileSync(path.join(__dirname, '../../src/assets/articles.json'))))
-  );
+  )
+  .put((request, response) => response.status(200).json(request.body));
 
 module.exports = router;

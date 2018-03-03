@@ -23,6 +23,7 @@ import { ArticleModule } from './article/article.module';
     FormsModule,
     RouterModule.forRoot([
       {path: '', component: ArticlesComponent},
+      {path: 'articles/new', component: EditArticleComponent},
       {path: 'articles/:id', component: ArticleComponent},
       {path: 'articles/:id/edit', component: EditArticleComponent}
     ]),

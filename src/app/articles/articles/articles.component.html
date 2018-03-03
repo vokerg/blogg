@@ -1,4 +1,4 @@
 <p>
-  articles works!
+  <a [routerLink]="['/articles', 'new']">New article</a>
   <app-article-preview *ngFor="let article of articles" [article]="article"></app-article-preview>
 </p>

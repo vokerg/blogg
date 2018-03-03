@@ -9,38 +9,42 @@ import { Article } from '../model/article';
   styleUrls: ['./edit-article.component.css']
 })
 export class EditArticleComponent implements OnInit {
-  article: Article = {
-    id:0,
-    title:"",
-    subject:"",
-    content:"",
-    liked: false
-  };
+  article: Article;
   id: number;
 
   onSubmit() {
-    this.articlesService.updateArticle(this.article).forEach(errorCode => {
-      if (errorCode !== 0) {
-        console.log("result111", errorCode);
-      }
-    });
+    if (this.id !== undefined) {
+      this.articlesService.updateArticle(this.article).forEach(errorCode => {
+        if (errorCode !== 0) {
+          console.log("result111", errorCode);
+        }
+      });
+    }
+    else {
+      this.articlesService.createArticle(this.article).forEach(errorCode => {
+        if (errorCode !== 0) {
+          console.log("result111", errorCode);
+        }
+      });
+    }
   }
 
   constructor(
     private router: Router,
     private route: ActivatedRoute,
     private articlesService: ArticlesService) {
+      this.article = new Article();
   }
 
   ngOnInit() {
     this.route.params.forEach(params => {
       this.id = params["id"];
-      this.articlesService.getArticle(this.id).forEach(article => {
-        this.article = article;
-        console.log("article", this.article);
-      });
+      if (this.id !== undefined) {
+        this.articlesService.getArticle(this.id).forEach(article => {
+          this.article = article;
+        });
+      };
     });
-
   }
 
 }
