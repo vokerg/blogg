@@ -2,6 +2,7 @@ const express = require('express');
 const path = require('path');
 const bodyParser = require('body-parser');
 const fs = require('fs');
+const { getDb } = require('../database');
 
 const parserJson = bodyParser.json();
 const router = express.Router();
