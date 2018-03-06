@@ -2,7 +2,9 @@ const express = require('express');
 const path = require('path');
 const bodyParser = require('body-parser');
 const fs = require('fs');
+const {ObjectId} = require('mongodb');
 const { getDb } = require('../database');
+
 
 const parserJson = bodyParser.json();
 const router = express.Router();
@@ -31,6 +33,12 @@ router.route('/')
   .get((request, response) =>
     response.status(200).json(JSON.parse(fs.readFileSync(path.join(__dirname, '../../src/assets/articles.json'))))
   )
-  .put((request, response) => response.status(200).json(request.body));
+  .put(parserJson, (request, response) => {
+    console.log(request.body);
+    getDb().db("blogg").collection("articles").insert(request.body, (err, result) => {
+      response.status(200).json(request.body);
+    });
+  });
+
 
 module.exports = router;
