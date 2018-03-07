@@ -12,7 +12,7 @@ const connectToDb = (connectionString, next) => {
         reconnectInterval: 1000
     },
     (err, database) => {
-      db = database;
+      db = database.db("blogg");
       if (!err) {
         next();
       } else {

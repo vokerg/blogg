@@ -8,11 +8,10 @@ import { Comment } from './model/comment';
 @Injectable()
 export class ArticlesService {
 
-  constructor(private http: HttpClient) {
-   }
+  constructor(private http: HttpClient) {}
 
   getArticles():Observable<Article[]> {
-    return this.http.get<any>('api/articles').map(response => <Article[]>response.articles);
+    return this.http.get<any>('api/articles').map(articles => <Article[]>articles);
   }
 
   getArticle(articleId: number):Observable<Article> {
