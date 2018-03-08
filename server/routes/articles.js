@@ -15,7 +15,20 @@ router.route('/:id/comments')
   .put((request, response) => response.status(200).json(request.body));
 
 router.route('/:id')
-  .post(parserJson, (request, response) => response.status(200).json(request.body))
+  .post(parserJson, (request, response) => {
+    const id = {_id: new ObjectId(request.params.id)};
+    getDb().collection("articles").findOne(id, (err, article) => {
+      article = {
+        ...article,
+        ...request.body
+      }
+      getDb().collection("articles").update(id, article, (err, result) => {
+        //change from _id to id
+        response.status(200).json(article);
+      });
+    });
+
+  })
   .get((request, response) => {
     const id = {_id: new ObjectId(request.params.id)};
     return getDb().collection("articles").find(id).toArray((err, articles) => {
