@@ -1,10 +1,18 @@
 <p *ngIf="id">edit-article {{id}}</p>
 <p *ngIf="!id">New article</p>
+<button (click)="redirect()">Back</button>
 <form (ngSubmit)="onSubmit()">
   <div>
-    <input [(ngModel)]="article.title" name="title">
-    <input [(ngModel)]="article.subject" name="subject">
-    <input [(ngModel)]="article.content" name="content">
-    <button type="submit">Submit</button>
+    <div>
+      <input [(ngModel)]="article.author" name="author">
+      <input [(ngModel)]="article.title" name="title">
+      <input [(ngModel)]="article.subject" name="subject">
+    </div>
+    <div>
+      <textarea [(ngModel)]="article.content" name="content"></textarea>
+    </div>
+    <div>
+      <button type="submit">Submit</button>
+    </div>
   </div>
 </form>
