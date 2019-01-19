@@ -27,7 +27,7 @@ import { AuthorComponent } from './author/author.component';
       {path: '', component: ArticlesComponent},
       {path: 'articles/new', component: EditArticleComponent},
       {path: 'articles/:id', component: ArticleComponent},
-      {path: 'articles/:id/edit', component: EditArticleComponent}
+      {path: 'articles/:id/edit', component: EditArticleComponent},
       {path: 'authors/:id', component: AuthorComponent}
     ]),
     ArticlesModule,
