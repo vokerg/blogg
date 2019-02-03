@@ -13,7 +13,6 @@ export class CommentComponent implements OnInit {
 
   @Input() comment: Comment;
 
-  ngOnInit() {
-  }
+  ngOnInit() { }
 
 }
