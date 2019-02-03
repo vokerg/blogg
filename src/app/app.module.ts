@@ -11,13 +11,13 @@ import { ArticlesService } from './articles.service';
 import { EditArticleComponent } from './edit-article/edit-article.component';
 import { ArticlesModule } from './articles/articles.module';
 import { ArticleModule } from './article/article.module';
+import { AuthorModule } from './author/author.module';
 import { AuthorComponent } from './author/author/author.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    EditArticleComponent,
-    AuthorComponent
+    EditArticleComponent
   ],
   imports: [
     BrowserModule,
@@ -31,7 +31,8 @@ import { AuthorComponent } from './author/author/author.component';
       {path: 'authors/:id', component: AuthorComponent}
     ]),
     ArticlesModule,
-    ArticleModule
+    ArticleModule,
+    AuthorModule
   ],
   providers: [
     ArticlesService,
