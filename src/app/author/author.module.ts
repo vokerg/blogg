@@ -9,9 +9,6 @@ import { AuthorService } from '../author.service';
   ],
   imports: [
     CommonModule
-  ],
-  providers: [
-    AuthorService
   ]
 })
 export class AuthorModule { }

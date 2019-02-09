@@ -1,7 +1,9 @@
 import { Injectable } from '@angular/core';
 import { Author } from './model/author';
 
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 export class AuthorService {
 
   constructor() { }
