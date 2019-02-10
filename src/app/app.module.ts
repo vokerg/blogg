@@ -14,6 +14,8 @@ import { ArticleModule } from './article/article.module';
 import { AuthorModule } from './author/author.module';
 import { AuthorComponent } from './author/author/author.component';
 
+import { SharedModule } from './shared/shared.module';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -32,7 +34,8 @@ import { AuthorComponent } from './author/author/author.component';
     ]),
     ArticlesModule,
     ArticleModule,
-    AuthorModule
+    AuthorModule,
+    SharedModule
   ],
   providers: [
     ArticlesService,

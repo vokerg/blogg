@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { ArticleComponent } from '../article/article.component';
+//import { ArticleComponent } from '../article/article.component';
 import { Comment } from '../../model/comment';
 
 @Component({
@@ -9,7 +9,9 @@ import { Comment } from '../../model/comment';
 })
 export class CommentComponent implements OnInit {
 
-  constructor(private articleComponent: ArticleComponent) { }
+  constructor(
+  //  private articleComponent: ArticleComponent
+  ) { }
 
   @Input() comment: Comment;
 
