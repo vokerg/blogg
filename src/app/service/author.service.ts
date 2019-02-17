@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Author } from '../model/author';
 import { Comment } from '../model/comment';
+import { Article } from '../model/article';
 
 @Injectable({
   providedIn: 'root'
@@ -15,7 +16,6 @@ export class AuthorService {
 
   getAuthorComments(authorId: number):Comment[] {
     let comment: Comment = new Comment();
-    console.log("comment", comment);
     comment.author = "aaass";
     comment.comment="blablabla";
 
@@ -25,5 +25,20 @@ export class AuthorService {
     });
 
     return [comment, comment1];
+  }
+
+  getAuthorArticles(authorId: number):Article[] {
+    return [
+      <Article>({
+        title: "some title2",
+        subject: "some subject",
+        content: "some content"
+      }),
+      <Article>({
+        title: "some title3",
+        subject: "some subject",
+        content: "some content"
+      }),
+    ]
   }
 }
