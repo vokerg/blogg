@@ -3,18 +3,21 @@ import { CommonModule } from '@angular/common';
 import { CommentsComponent } from './comments/comments.component';
 import { RouterModule } from '@angular/router';
 import { CommentComponent } from './comment/comment.component';
+import { ArticlePreviewComponent } from './article-preview/article-preview.component';
 
 @NgModule({
   declarations: [
     CommentsComponent,
-    CommentComponent
+    CommentComponent,
+    ArticlePreviewComponent
   ],
   imports: [
     CommonModule,
     RouterModule
   ],
   exports: [
-    CommentsComponent
+    CommentsComponent,
+    ArticlePreviewComponent
   ]
 })
 export class SharedModule { }
