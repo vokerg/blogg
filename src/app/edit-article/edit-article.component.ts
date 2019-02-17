@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { NgZone } from "@angular/core";
-import { ArticlesService } from '../articles.service';
+import { ArticlesService } from '../service/articles.service';
 import { Article } from '../model/article';
 
 @Component({

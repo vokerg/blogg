@@ -4,8 +4,8 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import 'rxjs/Rx';
-import { Article } from './model/article';
-import { Comment } from './model/comment';
+import { Article } from '../model/article';
+import { Comment } from '../model/comment';
 
 @Injectable()
 export class ArticlesService {

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthorService } from '../../author.service';
+import { AuthorService } from '../../service/author.service';
 import { Author } from '../../model/author';
+import { Comment } from '../../model/comment'
 
 @Component({
   selector: 'app-author',
@@ -9,12 +10,14 @@ import { Author } from '../../model/author';
 })
 export class AuthorComponent implements OnInit {
 
-  author: Author
+  author: Author;
+  comments: Comment[];
 
   constructor( private authorService: AuthorService ) { }
 
   ngOnInit() {
     this.author = this.authorService.getAuthor(0);
+    this.comments = this.authorService.getAuthorComments(0);
   }
 
 }

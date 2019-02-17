@@ -7,7 +7,7 @@ import { FormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { ArticlesComponent } from './articles/articles/articles.component';
 import { ArticleComponent } from './article/article/article.component';
-import { ArticlesService } from './articles.service';
+import { ArticlesService } from './service/articles.service';
 import { EditArticleComponent } from './edit-article/edit-article.component';
 import { ArticlesModule } from './articles/articles.module';
 import { ArticleModule } from './article/article.module';
