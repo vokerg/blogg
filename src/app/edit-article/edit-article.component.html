@@ -4,9 +4,10 @@
 <form (ngSubmit)="onSubmit()">
   <div>
     <div>
-      <input [(ngModel)]="article.author" name="author">
-      <input [(ngModel)]="article.title" name="title">
-      <input [(ngModel)]="article.subject" name="subject">
+      Author: <input [(ngModel)]="article.author" name="author">
+      Title: <input [(ngModel)]="article.title" name="title">
+      Subject: <input [(ngModel)]="article.subject" name="subject">
+      Tags: <input [(ngModel)]="article.tags" name="tags">
     </div>
     <div>
       <textarea [(ngModel)]="article.content" name="content"></textarea>

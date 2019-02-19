@@ -2,6 +2,12 @@
 <h2>{{article.title}}</h2>
 <h3>{{article.subject}}</h3>
 <h4>{{article.content}}</h4>
+<h4>
+  <span *ngFor="let tag of tags; let last = last">
+    <a [routerLink]="['/tags', tag]">{{ tag }}</a>
+    <span [hidden]='last'>,</span>
+  </span>
+</h4>
 <a [routerLink]="['/articles', id, 'edit']">Edit</a>
 
 <div>
