@@ -15,11 +15,13 @@ import { AuthorModule } from './author/author.module';
 import { AuthorComponent } from './author/author/author.component';
 
 import { SharedModule } from './shared/shared.module';
+import { TagComponent } from './tag/tag.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    EditArticleComponent
+    EditArticleComponent,
+    TagComponent
   ],
   imports: [
     BrowserModule,
@@ -30,7 +32,8 @@ import { SharedModule } from './shared/shared.module';
       {path: 'articles/new', component: EditArticleComponent},
       {path: 'articles/:id', component: ArticleComponent},
       {path: 'articles/:id/edit', component: EditArticleComponent},
-      {path: 'authors/:id', component: AuthorComponent}
+      {path: 'authors/:id', component: AuthorComponent},
+      {path: 'tags/:tag', component: TagComponent}
     ]),
     ArticlesModule,
     ArticleModule,
